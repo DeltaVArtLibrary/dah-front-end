@@ -1,6 +1,7 @@
 import NavBar from './Components/NavBar';
 
 import './App.css';
+import { Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
@@ -8,6 +9,11 @@ function App() {
       <header className="App-header">
       <NavBar/>
       </header>
+      <main>
+        <Switch>
+          <Route path="/">Home</Route>
+        </Switch>
+      </main>
     </div>
   );
 }
