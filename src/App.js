@@ -3,7 +3,7 @@ import Home from './Home';
 import Art from './Art';
 import Collections from './Collections';
 import Profile from './Profile';
-import Login from './Login';
+import Login from './Components/auth/Login';
 import Register from './Register';
 
 import './App.css';
