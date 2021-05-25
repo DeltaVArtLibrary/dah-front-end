@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 import jwt from 'jsonwebtoken';
 
-const usersAPI = 'https://digitalarthub.azurewebsites.net'; //put api key here and stuff
+const usersAPI = 'https://digitalarthub.azurewebsites.net'; //put api key here 
 
 export const AuthContext = createContext();
 
