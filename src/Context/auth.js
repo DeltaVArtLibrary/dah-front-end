@@ -1,13 +1,13 @@
 import { createContext, useContext, useState } from 'react';
 import jwt from 'jsonwebtoken';
 
-const usersAPI = 'https://digitalarthub.azurewebsites.net'; //put api key here 
+const usersAPI = 'https://digitalarthub.azurewebsites.net/api/Users'; //put api key here 
 
 export const AuthContext = createContext();
 
 export function useAuth() {
   const auth = useContext(AuthContext);
-  if (!auth) throw new Error('you forgot AuthProvider');
+  if (!auth) throw new Error('You forgot the AuthProvider');
   return auth;
 }
 
