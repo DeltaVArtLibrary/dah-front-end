@@ -1,6 +1,10 @@
 import NavBar from './Components/NavBar';
 import Home from './Home';
 import Art from './Art';
+import Collections from './Collections';
+import Profile from './Profile';
+import Login from './Login';
+import Register from './Register';
 
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
@@ -18,6 +22,18 @@ function App() {
           </Route>
           <Route path="/Art">
             <Art />
+          </Route>
+          <Route path="/Collections">
+            <Collections />
+          </Route>
+          <Route path="/Profile">
+            <Profile />
+          </Route>
+          <Route>
+            <Register />
+          </Route>
+          <Route path="Login">
+            <Login />
           </Route>
 
         </Switch>
