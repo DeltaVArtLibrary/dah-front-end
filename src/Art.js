@@ -4,40 +4,51 @@ import React from 'react';
 
 const ArtAPI = 'https://digitalarthub.azurewebsites.net/api/Art';
 
-export default async function Art() {
-  const { data, reload } = await useFetch('https://digitalarthub.azurewebsites.net/api/Art');
-
-   const ArtDetails = {
-   artId : data.artId,
-  //   Title : results.data.Title,
-  //   content : results.data.content,
-  //   description : results.data.description,
-  //   profileDisplayName : results.data.profileDisplayName,
-   }
+export default  function Art() {
+  const { data, reload } =  useFetch('https://digitalarthub.azurewebsites.net/api/Art');
 
   console.log(data);
-  let response = await fetch(
-    `${ArtAPI}/${art.artId}`,
-    {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        ...art.artId,
-      })
-    }
-  )
+
 
   return (
     <>
-      <h1>Welcome to beautiful artttt!</h1>
+      <h1>Welcome to the art page.</h1>
       <div>
+       <ArtList art={data}/>
+      </div>
+    </>
+  );
+}
 
-        {data.map((art) => 
+function ArtList(props){
+  var artArray=props.art;
+  if(!artArray){
+    return (<div>
+      Loading...
+    </div>);
+  }
+  return(
+    <div>
+      {artArray.map((art) => 
+      <div>
+          <p>{art.title}</p>
+          <p>{art.content}</p>
+          <p>{art.profileDisplayName}</p>
+          </div>
+        )}
+    </div>
+  )
+}
+
+
+
+
+
+ {/* {data.map((art) => 
           <p>{art.Title}</p>
         )
 
-        }
+        } */}
          {/* <Card style={{ width: 250 }}>
           <Card.Img variant="top" src="holder.js/100px108" />
           <Card.Body>
@@ -47,7 +58,3 @@ export default async function Art() {
             <Button variant="primary">See Details!</Button>
           </Card.Body>
           </Card>  */}
-      </div>
-    </>
-  );
-}
