@@ -4,8 +4,7 @@ import Art from './Art';
 import Collections from './Collections';
 import Profile from './Profile';
 import Login from './Components/auth/Login';
-import Register from './Register';
-
+import Register from './Components/auth/Register';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 

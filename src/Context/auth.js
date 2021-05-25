@@ -14,9 +14,30 @@ export function useAuth() {
 export function AuthProvider(props) {
   const [state, setState] = useState({
     user: null,
+    register, 
     login,
     logout,
   });
+
+  async function register(email, username, password) {
+    console.log({email, username, password});
+
+    const result = await fetch(`${usersAPI}/Register`, {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email, username, password }),
+    });
+
+    const resultBody = await result.json();
+
+    if (result.ok) {
+      return setUser(resultBody);
+    }
+
+    return logout();
+  }
 
   async function login(username, password) {
     console.log({username, password});
