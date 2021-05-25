@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import Login from './auth/Login';
 
 
 export default function NavBar(){
@@ -9,7 +10,8 @@ export default function NavBar(){
       <li><NavLink to="/Art">Art</NavLink></li>
       <li><NavLink to="/Collections">Collections</NavLink></li>
       <li><NavLink to="/Profile">Profile</NavLink></li>
-      <li><NavLink to="/Login">Login</NavLink></li>
+      {/* <li><NavLink to="/Login">Login</NavLink></li> change to modal*/} 
+      <Login/>
     </ul>
     </>
   )

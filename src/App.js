@@ -1,4 +1,6 @@
 import NavBar from './Components/NavBar';
+import Home from './Home';
+import Art from './Art';
 
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
@@ -11,7 +13,13 @@ function App() {
       </header>
       <main>
         <Switch>
-          <Route path="/">Home</Route>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/Art">
+            <Art />
+          </Route>
+
         </Switch>
       </main>
     </div>
