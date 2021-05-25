@@ -2,10 +2,10 @@ import useFetch from './hooks/useFetch';
 // import Card from 'react-bootstrap/Card';
 import React from 'react';
 
-const ArtAPI = 'https://digitalarthub.azurewebsites.net/api/Art';
+
 
 export default  function Art() {
-  const { data, reload } =  useFetch('https://digitalarthub.azurewebsites.net/api/Art');
+  const { data } =  useFetch('https://digitalarthub.azurewebsites.net/api/Art');
 
   console.log(data);
 
@@ -40,21 +40,3 @@ function ArtList(props){
   )
 }
 
-
-
-
-
- {/* {data.map((art) => 
-          <p>{art.Title}</p>
-        )
-
-        } */}
-         {/* <Card style={{ width: 250 }}>
-          <Card.Img variant="top" src="holder.js/100px108" />
-          <Card.Body>
-            <Card.Title>{{Title}}</Card.Title>
-            <Card.Text>{{profileDisplayName}}</Card.Text>
-            <Card.Text>{{description}}</Card.Text>
-            <Button variant="primary">See Details!</Button>
-          </Card.Body>
-          </Card>  */}
