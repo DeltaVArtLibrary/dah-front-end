@@ -40,7 +40,7 @@ export function AuthProvider(props) {
       // return setUser(resultBody);
     }
     // not needed
-    return logout();
+    //return logout();
   }
 
   async function login(username, password) {
