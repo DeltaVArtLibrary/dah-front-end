@@ -30,12 +30,16 @@ export function AuthProvider(props) {
       body: JSON.stringify({ email, username, password }),
     });
 
-    const resultBody = await result.json();
+    // redundant? login() does this
+    // const resultBody = await result.json();
 
     if (result.ok) {
-      return setUser(resultBody);
+      // if we successfully register, pass the username and password onto the login function
+      login(username, password);
+      // same as with line 34
+      // return setUser(resultBody);
     }
-
+    // not needed
     return logout();
   }
 
