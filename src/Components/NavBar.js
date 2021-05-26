@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import NavLogin from './NavLogin';
+//import Navbar from 'react-bootstrap/Navbar'
 
 
 export default function NavBar(){

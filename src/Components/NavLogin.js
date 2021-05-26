@@ -3,7 +3,9 @@ import Register from './auth/Register';
 import { useState } from 'react';
 import { useAuth } from '../Context/auth';
 import Modal from 'react-bootstrap/Modal';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
+import CloseButton from 'react-bootstrap/CloseButton'
 
 
 export default function NavLogin(){
@@ -36,13 +38,14 @@ export default function NavLogin(){
 
   return (
     <>
-      <button onClick={showLogin}>Login</button>
-      <Modal show = {showForm} onHide = {hideModal}>
+      <Button variant="primary" onClick={showLogin}>Login</Button>
+      <Modal show = {showForm} >
         
-        <Modal.Header closeButton variant="warning"> 
+        <Modal.Header> 
           <Modal.Title>
             Welcome 
           </Modal.Title>
+          <CloseButton onClick= {hideModal}/> 
         </Modal.Header>
         <Modal.Body>
           {showForm === 'Login' && <Login />}
