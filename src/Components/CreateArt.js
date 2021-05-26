@@ -1,38 +1,49 @@
 import {Form, Button} from 'react-bootstrap'; 
-import {useState} from 'react';
+
 import {useAuth} from '../Context/auth';
+const createArtAPI = 'https://digitalarthub.azurewebsites.net/api/Profile/30/Art';
 
 export default function CreateArt(props){
     const auth = useAuth();
     console.log(auth);
     const { user } = auth;
     console.log(user);
-
+    
+    
     if (!user) {
         return (
             <p>You are not signed in, please sign in to create art.</p>
         );
     }
-
+    console.log(user.id);
     const handleSubmit = e => {
         e.preventDefault();
         const artTitle = e.target.ArtTitle.value;
         const artist = e.target.ArtistName.value;
         const artDescription = e.target.ArtDescription.value;
-
         const newArt = {
-            id: Date.now(),
             artTitle,
             artist,
             artDescription,
-            
           };
-  
+          fetch(createArtAPI, {
+              method: 'POST',
+              headers: {
+                  'Authorization': `Bearer ${user.token}`,
+                  'Content-Type': 'application/json',
+              
+            },
+            body:JSON.stringify({
+                profileId: 30,
+                title: "string",
+                content: "string",
+                description: "string"
+                
+
+            })
+          })
           console.log(newArt);
-  
-          props.onSave(newArt);
-
-
+          
     };
    return (
     <div className="create-art-form">
