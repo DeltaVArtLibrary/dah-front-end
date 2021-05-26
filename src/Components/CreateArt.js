@@ -1,8 +1,6 @@
 import {Form, Button} from 'react-bootstrap'; 
-// import { Redirect } from 'react-router';
 import { useState } from 'react';
 import {useAuth} from '../Context/auth';
-// import { NavLink } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 
 const profileAPI = 'https://digitalarthub.azurewebsites.net/api/Users/Profiles';
@@ -13,9 +11,6 @@ export function ProfileData(prop){
     console.log(auth);
     const { user } = auth;
     console.log(user);
-    const { data } =  useFetch(profileAPI);
-    console.log("data from api", data);
-    
 };
 
 export default function CreateArt(props){
@@ -24,16 +19,18 @@ export default function CreateArt(props){
     const { user } = auth;
     console.log(user);
     const [ArtTitle, setTitle] = useState("Title");
+    
     const { data } =  useFetch(profileAPI);
-    console.log("data from api", data);
-    
-    
+    console.log("fetch user", data);
+
     if (!user) {
         return (
             <p>You are not signed in, please sign in to create art.</p>
         );
     }
     console.log(user.id);
+
+
     const handleSubmit = async e => {
         e.preventDefault();
         const artTitle = e.target.ArtTitle.value;
@@ -62,12 +59,10 @@ export default function CreateArt(props){
             })
           })
           console.log(newArt);
-          
-        
-          
-          
-          
+
     };
+
+
    return (
     <div className="create-art-form">
       <h2>Create Art</h2>
