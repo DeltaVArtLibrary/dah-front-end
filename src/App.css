@@ -22,10 +22,17 @@
   justify-content:space-evenly;
   font-size: calc(10px + 2vmin);
   color: white;
+  
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.NavBar{
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 @keyframes App-logo-spin {

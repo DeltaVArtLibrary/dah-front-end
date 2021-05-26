@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-//import NavLogin from './NavLogin';
+import NavLogin from './NavLogin';
 import { Nav, Navbar } from 'react-bootstrap'
 
 
@@ -30,13 +30,15 @@ export default function NavBar(){
           <Nav.Item>
             <NavLink to="/Profile">Profile</NavLink>
           </Nav.Item>
-          
+
           <Nav.Item>
-            <NavLink to="/NavLogin">Login</NavLink>
+            
           </Nav.Item>
             
           </Nav>
         </Navbar>
+       
+        <NavLogin/>
       </>
       
     )
