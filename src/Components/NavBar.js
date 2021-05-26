@@ -4,8 +4,6 @@ import NavLogin from './NavLogin';
 
 
 export default function NavBar(){
-
-
   return (
     <>
     <ul>

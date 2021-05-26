@@ -32,7 +32,7 @@ export default function Register() {
       <label>Email <input type="text" name="email" /></label>
       <label>Username <input type="text" name="username" /></label>
       <label>Password <input type="password" name="password" /></label>
-      <Button variant="danger">Register</Button>
+      <Button type="submit" variant="danger">Register</Button>
     </form>
 
     </>

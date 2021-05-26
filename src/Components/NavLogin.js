@@ -39,13 +39,13 @@ export default function NavLogin(){
   return (
     <>
       <Button variant="primary" onClick={showLogin}>Login</Button>
-      <Modal show = {showForm} >
+      <Modal show = {showForm} onHide = {hideModal}>
         
         <Modal.Header> 
           <Modal.Title>
             Welcome 
           </Modal.Title>
-          <CloseButton onClick= {hideModal}/> 
+          <CloseButton onClick= {hideModal}/>  
         </Modal.Header>
         <Modal.Body>
           {showForm === 'Login' && <Login />}
@@ -55,7 +55,6 @@ export default function NavLogin(){
           Don't have an account? <Button variant="link" onClick={showRegister}>Register here</Button>
         </Modal.Footer>
       </Modal>
-
     </>
   )
 }

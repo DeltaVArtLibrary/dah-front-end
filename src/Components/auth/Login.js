@@ -36,7 +36,7 @@ export default function Login() {
       <form className="loginForm" onSubmit={handleSubmit}>
         <label>Username <input type="text" name="username" /></label>
         <label>Password <input type="password" name="password" /></label>
-        <Button variant="danger">Login</Button>
+        <Button type="submit" variant="danger">Login</Button>
       </form>
     );
 }
