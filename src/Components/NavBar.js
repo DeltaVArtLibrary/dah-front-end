@@ -10,6 +10,7 @@ export default function NavBar(){
     <ul>
       <li><NavLink to="/" >Home</NavLink></li>
       <li><NavLink to="/Art">Art</NavLink></li>
+      <li><NavLink to="/CreateArt">Create Art</NavLink></li>
       <li><NavLink to="/Collections">Collections</NavLink></li>
       <li><NavLink to="/Profile">Profile</NavLink></li>
       <li><NavLogin/></li>
