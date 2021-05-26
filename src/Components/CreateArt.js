@@ -1,8 +1,8 @@
 import {Form, Button} from 'react-bootstrap'; 
-import { Redirect } from 'react-router';
+// import { Redirect } from 'react-router';
 import { useState } from 'react';
 import {useAuth} from '../Context/auth';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 
 const profileAPI = 'https://digitalarthub.azurewebsites.net/api/Users/Profiles';
