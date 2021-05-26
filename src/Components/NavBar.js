@@ -12,6 +12,7 @@ export default function NavBar(){
       <li><NavLink to="/Art">Art</NavLink></li>
       <li><NavLink to="/Collections">Collections</NavLink></li>
       <li><NavLink to="/Profile">Profile</NavLink></li>
+      <li><NavLink to="/CreateArt">Create Art</NavLink></li>
       {/* <li><NavLink to="/Login">Login</NavLink></li> change to modal*/} 
       <Login/>
     </ul>

@@ -55,6 +55,7 @@ export function AuthProvider(props) {
     });
 
     const resultBody = await result.json();
+    
 
     if (result.ok) {
       return setUser(resultBody);
@@ -93,6 +94,7 @@ function processToken(user) {
     if (payload){
       console.log('token payload', payload);
       user.permissions = payload.permissions || [];
+      
       return user;
     }
 
