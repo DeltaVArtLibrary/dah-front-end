@@ -2,6 +2,7 @@ import useFetch from './hooks/useFetch';
 // import Card from 'react-bootstrap/Card';
 import './css/Art.css';
 import React from 'react';
+import Card from 'react-bootstrap/Card';
 
 
 
@@ -33,13 +34,16 @@ function ArtList(props){
 
   // when the art is loaded into the array we now map it
   return(
-    <div>
+    <div className="CardLineup">
       {artArray.map((art) => 
-      <div>
-          <p>{art.title}</p>
-          <p>{art.content}</p>
-          <p>{art.profileDisplayName}</p>
-          </div>
+    <Card className="SingleCard" style={{ width: 400 }}>
+
+      <Card.Body className="fixingTextContent">
+          <Card.Title>{art.title}</Card.Title>
+          <Card.Text className="scrollable">{art.content}</Card.Text>
+          <Card.Text className="profileName">{art.profileDisplayName}</Card.Text>
+      </Card.Body>
+    </Card>
         )}
     </div>
   )
