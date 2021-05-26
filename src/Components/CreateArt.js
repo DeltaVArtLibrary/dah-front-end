@@ -1,13 +1,17 @@
 import {Form, Button} from 'react-bootstrap'; 
-
+import { Redirect } from 'react-router';
+import { useState } from 'react';
 import {useAuth} from '../Context/auth';
+import { NavLink } from 'react-router-dom';
 const createArtAPI = 'https://digitalarthub.azurewebsites.net/api/Profile/30/Art';
+
 
 export default function CreateArt(props){
     const auth = useAuth();
     console.log(auth);
     const { user } = auth;
     console.log(user);
+    const [ArtTitle, setTitle] = useState("Title");
     
     
     if (!user) {
@@ -16,35 +20,38 @@ export default function CreateArt(props){
         );
     }
     console.log(user.id);
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
         const artTitle = e.target.ArtTitle.value;
         const artist = e.target.ArtistName.value;
         const artContent = e.target.ArtContent.value;
         const artDescription = e.target.ArtDescription.value;
+        setTitle("Title");
         const newArt = {
             artTitle,
             artist,
             artContent,
             artDescription,
           };
+          
           fetch(createArtAPI, {
               method: 'POST',
               headers: {
                   'Authorization': `Bearer ${user.token}`,
                   'Content-Type': 'application/json',
-              
             },
             body:JSON.stringify({
                 profileId: 30,
                 title: newArt.artTitle,
                 content: newArt.artContent,
                 description: newArt.artDescription,
-                
-
             })
           })
           console.log(newArt);
+          
+        
+          
+          
           
     };
    return (
@@ -53,11 +60,11 @@ export default function CreateArt(props){
       <Form onSubmit={handleSubmit} > 
         <Form.Group controlId="ArtTitle">
           <Form.Label>Art Title</Form.Label>
-          <Form.Control type="text" name="ArtTitle" placeholder="Art Title" />
+          <Form.Control type="text" name="ArtTitle" placeholder={ArtTitle} />
         </Form.Group>
         <Form.Group controlId="Artist">
           <Form.Label>Artist Name</Form.Label>
-          <Form.Control type="text" name="ArtistName" placeholder="Artist Name" />
+          <Form.Control  type="text" name="ArtistName" placeholder="Artist Name" />
         </Form.Group>
         <Form.Group controlId="Content">
           <Form.Label>Art Content</Form.Label>
@@ -67,8 +74,9 @@ export default function CreateArt(props){
           <Form.Label>Description</Form.Label>
           <Form.Control type="text" name="ArtDescription" placeholder="Art Description"/>
         </Form.Group>
-        <Button type="submit" >Create Art</Button>
+        <Button type="submit">Create Art</Button>
       </Form>
     </div>
+
    );
 };
