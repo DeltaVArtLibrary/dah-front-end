@@ -10,7 +10,7 @@ export default function Login() {
       }
 
       return (
-          <button className="logout" onClick={handleLogout}>Log Out</button>
+          <button className="logout" onClick={handleLogout}>Logout</button>
       )
   }
 
@@ -34,7 +34,7 @@ export default function Login() {
       <form className="loginForm" onSubmit={handleSubmit}>
         <label>Username <input type="text" name="username" /></label>
         <label>Password <input type="password" name="password" /></label>
-        <button>Log In</button>
+        <button>Login</button>
       </form>
     );
 }

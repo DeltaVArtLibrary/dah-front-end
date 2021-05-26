@@ -3,6 +3,7 @@ import Register from './auth/Register';
 import { useState } from 'react';
 import { useAuth } from '../Context/auth';
 import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 
 export default function NavLogin(){
@@ -25,6 +26,10 @@ export default function NavLogin(){
     setShowForm("Login");
   }
 
+  function showRegister() {
+    setShowForm("Register");
+  }
+
   function hideModal() {
     setShowForm(null);
   }
@@ -34,15 +39,18 @@ export default function NavLogin(){
       <button onClick={showLogin}>Login</button>
       <Modal show = {showForm} onHide = {hideModal}>
         
-        <Modal.Header closeButton>
+        <Modal.Header closeButton variant="warning"> 
           <Modal.Title>
-            Welcome
+            Welcome 
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {showForm === 'Login' && <Login />}
           {showForm === 'Register' && <Register />}
         </Modal.Body>
+        <Modal.Footer>
+          Don't have an account? <Button variant="link" onClick={showRegister}>Register here</Button>
+        </Modal.Footer>
       </Modal>
 
     </>
