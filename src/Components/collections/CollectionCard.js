@@ -1,6 +1,4 @@
-import { useFetch } from '../../hooks/useFetch';
 import { Card, Button, Accordion } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
 
 export default function CollectionCard(data) {
   
