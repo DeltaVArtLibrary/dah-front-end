@@ -20,10 +20,12 @@ export default function CreateArt(props){
         e.preventDefault();
         const artTitle = e.target.ArtTitle.value;
         const artist = e.target.ArtistName.value;
+        const artContent = e.target.ArtContent.value;
         const artDescription = e.target.ArtDescription.value;
         const newArt = {
             artTitle,
             artist,
+            artContent,
             artDescription,
           };
           fetch(createArtAPI, {
@@ -35,9 +37,9 @@ export default function CreateArt(props){
             },
             body:JSON.stringify({
                 profileId: 30,
-                title: "string",
-                content: "string",
-                description: "string"
+                title: newArt.artTitle,
+                content: newArt.artContent,
+                description: newArt.artDescription,
                 
 
             })
@@ -56,6 +58,10 @@ export default function CreateArt(props){
         <Form.Group controlId="Artist">
           <Form.Label>Artist Name</Form.Label>
           <Form.Control type="text" name="ArtistName" placeholder="Artist Name" />
+        </Form.Group>
+        <Form.Group controlId="Content">
+          <Form.Label>Art Content</Form.Label>
+          <Form.Control type="text" name="ArtContent" placeholder="Put your Content Here" />
         </Form.Group>
         <Form.Group controlId="Description">
           <Form.Label>Description</Form.Label>
