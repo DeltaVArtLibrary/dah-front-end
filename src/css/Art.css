@@ -1,0 +1,23 @@
+.SingleCard {
+  background-color: rgb(231, 231, 231);
+  height: 350px;
+  margin: 25px;
+  padding: .5rem;
+  
+}
+
+.CardLineup {
+  display: grid;
+  grid-template-columns: repeat(4, 2fr);
+  grid-auto-rows: auto;
+}
+
+.scrollable {
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.profileName {
+  position: absolute;
+  bottom: 5px;
+}

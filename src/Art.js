@@ -34,18 +34,18 @@ function ArtList(props){
 
   // when the art is loaded into the array we now map it
   return(
-    <>
+    <div className="CardLineup">
       {artArray.map((art) => 
-    <Card style={{ width: 250 }}>
+    <Card className="SingleCard" style={{ width: 400 }}>
 
-      <Card.Body>
+      <Card.Body className="fixingTextContent">
           <Card.Title>{art.title}</Card.Title>
-          <Card.Text>{art.content}</Card.Text>
-          <Card.Text>{art.profileDisplayName}</Card.Text>
+          <Card.Text className="scrollable">{art.content}</Card.Text>
+          <Card.Text className="profileName">{art.profileDisplayName}</Card.Text>
       </Card.Body>
     </Card>
         )}
-    </>
+    </div>
   )
 }
 
