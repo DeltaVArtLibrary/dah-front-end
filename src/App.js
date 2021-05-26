@@ -5,6 +5,7 @@ import Collections from './Collections';
 import Profile from './Profile';
 import Login from './Components/auth/Login';
 import Register from './Components/auth/Register';
+import CreateArt from './Components/CreateArt';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 
@@ -28,7 +29,10 @@ function App() {
           <Route path="/Profile">
             <Profile />
           </Route>
-          <Route>
+          <Route path="/CreateArt" >
+            <CreateArt />
+          </Route>
+          <Route path="/Register">
             <Register />
           </Route>
           <Route path="Login">
