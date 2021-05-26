@@ -39,13 +39,13 @@ export default function NavLogin(){
   return (
     <>
       <Button variant="primary" onClick={showLogin}>Login</Button>
-      <Modal show = {showForm} onHide = {hideModal}>
+      <Modal show = {showForm} >
         
         <Modal.Header> 
           <Modal.Title>
             Welcome 
           </Modal.Title>
-          <CloseButton/> 
+          <CloseButton onClick= {hideModal}/> 
         </Modal.Header>
         <Modal.Body>
           {showForm === 'Login' && <Login />}
