@@ -18,26 +18,25 @@ export default function CreateArt(props){
     console.log(auth);
     const { user } = auth;
     console.log(user);
-    const [ArtTitle, setTitle] = useState("Title");
+    const [ArtTitle] = useState("Title");
     
     const { data } =  useFetch(profileAPI);
-    console.log("fetch user", data);
+     if(data != null){
+        data.forEach(p => console.log(p.id))
+     }
+    
 
     if (!user) {
         return (
             <p>You are not signed in, please sign in to create art.</p>
         );
     }
-    console.log(user.id);
-
-
     const handleSubmit = async e => {
         e.preventDefault();
         const artTitle = e.target.ArtTitle.value;
         const artist = e.target.ArtistName.value;
         const artContent = e.target.ArtContent.value;
         const artDescription = e.target.ArtDescription.value;
-        setTitle("Title");
         const newArt = {
             artTitle,
             artist,
@@ -59,7 +58,6 @@ export default function CreateArt(props){
             })
           })
           console.log(newArt);
-
     };
 
 
