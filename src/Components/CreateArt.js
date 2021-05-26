@@ -3,8 +3,20 @@ import { Redirect } from 'react-router';
 import { useState } from 'react';
 import {useAuth} from '../Context/auth';
 import { NavLink } from 'react-router-dom';
+import useFetch from '../hooks/useFetch';
+
+const profileAPI = 'https://digitalarthub.azurewebsites.net/api/Users/Profiles';
 const createArtAPI = 'https://digitalarthub.azurewebsites.net/api/Profile/30/Art';
 
+export function ProfileData(prop){
+    const auth = useAuth();
+    console.log(auth);
+    const { user } = auth;
+    console.log(user);
+    const { data } =  useFetch(profileAPI);
+    console.log("data from api", data);
+    
+};
 
 export default function CreateArt(props){
     const auth = useAuth();
@@ -12,6 +24,8 @@ export default function CreateArt(props){
     const { user } = auth;
     console.log(user);
     const [ArtTitle, setTitle] = useState("Title");
+    const { data } =  useFetch(profileAPI);
+    console.log("data from api", data);
     
     
     if (!user) {
@@ -80,3 +94,6 @@ export default function CreateArt(props){
 
    );
 };
+
+
+

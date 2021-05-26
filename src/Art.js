@@ -1,5 +1,6 @@
 import useFetch from './hooks/useFetch';
 // import Card from 'react-bootstrap/Card';
+import './css/Art.css';
 import React from 'react';
 
 
