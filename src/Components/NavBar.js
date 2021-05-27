@@ -8,7 +8,7 @@ export default function NavBar(){
 
   return (
       <>
-        <Navbar class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <Navbar className="navbar navbar-expand-sm navbar-dark bg-dark">
           <Nav className="mr-auto" variant="tabs">
           
           <Nav.Item>
