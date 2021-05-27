@@ -24,7 +24,7 @@ export default function CollectionCard(props) {
             
         
       </Card.Body>
-      <Card.Footer>Literally whatever I want</Card.Footer>
+      <Card.Footer>{collection.profile.displayName}</Card.Footer>
     </Card>
   )
 }
