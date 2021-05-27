@@ -1,5 +1,4 @@
 import NavBar from './Components/NavBar';
-import Home from './Home';
 import Art from './Art';
 import Collections from './Collections';
 import Profile from './Profile';
