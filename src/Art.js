@@ -35,7 +35,7 @@ export default  function Art() {
   );
 }
 
-function ArtList(props){
+export function ArtList(props){
   const artArray=props.art; // array to store the art 
   useEffect(() => {
     if(artArray)

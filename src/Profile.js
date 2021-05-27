@@ -1,32 +1,68 @@
-import {useAuth} from './Context/auth';
-//import useFetch from './hooks/useFetch';
-//import { useHistory } from 'react-router-dom';
-
+import useFetch from './hooks/useFetch';
+import './css/Profile.css';
+import { useParams } from 'react-router-dom';
+import { Tabs, Tab } from 'react-bootstrap';
+import { useState } from 'react';
+import { ArtList } from './Art';
+import { CollectionList } from './Collections';
 
 //const profileAPI = 'https://digitalarthub.azurewebsites.net/api/Users/Profiles';
-//const API = 'https://digitalarthub.azurewebsites.net/api';
-
-
-
+const API = 'https://digitalarthub.azurewebsites.net/api';
 
 export default function Profile() {
-
-   // allows us to redirect to the art page upon form submission
-   //const history = useHistory();
-   // use useAuth to verify the user
-   const auth = useAuth();
-   //const { data } =  useFetch(profileAPI);
+   const params = useParams();
+      console.log(params);
+   const id = (params.id);
+   const { data } =  useFetch(`${API}/Profile/${id}`);
    // If the user is not signed in, tell them to sign in
-   const { user } = auth;
-   console.log(user);
-   if (!user) {
-       return (
-           <p>You are not signed in. You need to be signed in to view your profile.</p>
-       );
-   }
+   //console.log(user);
+      console.log(data);
+    if(!data){
+      return <h1>Loading...</h1>
+    }
+
   return (
-    <>
-      <h1>Welcome to your profile {user.username}!</h1>
-    </>
+    <div className="profile">
+      <h1>{data.displayName}</h1>
+        <p>{data.description}</p>
+          <ProfileNav />
+    </div>
   );
+}
+
+function ProfileNav() {
+  
+  const [key, setKey] = useState('art');
+  return (
+    <Tabs className="profile" activeKey={key} onSelect={k => setKey(k)} >
+      <Tab className="profile" eventKey="art" title="Art">
+        <ProfileArtList />
+      </Tab>
+      <Tab className="profile" eventKey="collections" title="Collections">
+        <ProfileCollections />
+      </Tab>
+    </Tabs>
+  )
+}
+
+function ProfileArtList() {
+  const params = useParams();
+      console.log(params);
+   const id = (params.id);
+   const { data } =  useFetch(`${API}/Profile/${id}/Art`);
+
+   return (
+     <ArtList art={data} />
+   )
+}
+
+function ProfileCollections() {
+  const params = useParams();
+  console.log(params);
+  const id = (params.id);
+  const { data } =  useFetch(`${API}/Profile/${id}/Collection`);
+
+  return (
+    <CollectionList collections={data} />
+  )
 }
