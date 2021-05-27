@@ -15,6 +15,7 @@ a:hover {
   border-color: #dee2e6 #dee2e6 #fff;
 }
 
-.ProfileTabs {
-  left: 10vw;
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
+  left: 5vw;
+  position: relative;
 }
