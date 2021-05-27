@@ -25,7 +25,7 @@ function App() {
           <Route path="/Collections">
             <Collections />
           </Route>
-          <Route path="/Profile">
+          <Route path="/Profile/:id">
             <Profile />
           </Route>
           <Route path="/CreateArt" >
