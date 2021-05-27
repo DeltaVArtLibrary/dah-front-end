@@ -22,11 +22,11 @@ export default function Profile() {
     }
 
   return (
-    <>
+    <div className="profile">
       <h1>{data.displayName}</h1>
         <p>{data.description}</p>
           <ProfileNav />
-    </>
+    </div>
   );
 }
 
@@ -34,11 +34,11 @@ function ProfileNav() {
   
   const [key, setKey] = useState('art');
   return (
-    <Tabs className="ProfileTabs" activeKey={key} onSelect={k => setKey(k)} >
-      <Tab className="ProfileTab" eventKey="art" title="Art">
+    <Tabs className="profile" activeKey={key} onSelect={k => setKey(k)} >
+      <Tab className="profile" eventKey="art" title="Art">
         <ProfileArtList />
       </Tab>
-      <Tab className="ProfileTab" eventKey="collections" title="Collections">
+      <Tab className="profile" eventKey="collections" title="Collections">
         <ProfileCollections />
       </Tab>
     </Tabs>
