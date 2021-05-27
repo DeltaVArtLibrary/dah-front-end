@@ -2,17 +2,11 @@ import {Form, Button} from 'react-bootstrap';
 import { useState } from 'react';
 import {useAuth} from '../Context/auth';
 import useFetch from '../hooks/useFetch';
-import {Dropdown, DropdownButton} from 'react-bootstrap';
+
 
 const profileAPI = 'https://digitalarthub.azurewebsites.net/api/Users/Profiles';
-const createArtAPI = 'https://digitalarthub.azurewebsites.net/api/Profile/30/Art';
+const API = 'https://digitalarthub.azurewebsites.net/api';
 
-export function ProfileData(prop){
-    const auth = useAuth();
-    console.log(auth);
-    const { user } = auth;
-    console.log(user);
-};
 
 export default function CreateArt(props){
     const auth = useAuth();
@@ -51,14 +45,14 @@ export default function CreateArt(props){
             artDescription,
           };
           
-          fetch(createArtAPI, {
+          fetch(`${API}/Profile/${profileId}/Art`, {
               method: 'POST',
               headers: {
                   'Authorization': `Bearer ${user.token}`,
                   'Content-Type': 'application/json',
             },
             body:JSON.stringify({
-                profileId: 30,
+                profileId: newArt.profileId,
                 title: newArt.artTitle,
                 content: newArt.artContent,
                 description: newArt.artDescription,
