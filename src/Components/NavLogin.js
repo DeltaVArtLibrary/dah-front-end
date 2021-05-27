@@ -8,11 +8,12 @@ import Button from 'react-bootstrap/Button';
 import CloseButton from 'react-bootstrap/CloseButton'
 
 
-export default function NavLogin(){
-  const [showForm, setShowForm] = useState();
+export default function NavLogin(props=null){
+  const propsTF = props.state;
+  const [showForm, setShowForm] = useState(propsTF);
 
   const { user, logout } = useAuth();
-
+  
   if (user) {
       function handleLogout() {
           logout();

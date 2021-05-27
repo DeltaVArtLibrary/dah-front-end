@@ -2,6 +2,7 @@ import {Form, Button} from 'react-bootstrap';
 import {useAuth} from '../Context/auth';
 import { useHistory } from 'react-router-dom';
 import { useProfiles } from '../Context/profiles';
+import NavLogin from './NavLogin';
 
 
 const API = 'https://digitalarthub.azurewebsites.net/api';
@@ -18,7 +19,7 @@ export default function CreateArt(props){
     const { user } = auth;
     if (!user) {
         return (
-            <p>You are not signed in, please sign in to create art.</p>
+            <NavLogin state={"Login"}/>
         );
     }
     // on form submission go through and create an art object with the values the user entered
