@@ -6,6 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './Context/auth';
+import {ProfilesProvider} from './Context/profiles';
 
 
 
@@ -13,7 +14,9 @@ ReactDOM.render(
   <React.StrictMode>
    <BrowserRouter>
    <AuthProvider>
-    <App />
+     <ProfilesProvider>
+      <App />
+    </ProfilesProvider>
    </AuthProvider>
    </BrowserRouter>
   </React.StrictMode>,
