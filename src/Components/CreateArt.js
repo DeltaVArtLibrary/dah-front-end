@@ -45,7 +45,7 @@ export default function CreateArt(props){
             artDescription,
           };
           
-          fetch(`${API}/Profile/${profileId}/Art`, {
+          await fetch(`${API}/Profile/${profileId}/Art`, {
               method: 'POST',
               headers: {
                   'Authorization': `Bearer ${user.token}`,
@@ -59,6 +59,8 @@ export default function CreateArt(props){
             })
           })
           console.log(newArt);
+          // reset the form
+          e.target.reset();
     };
 
 
