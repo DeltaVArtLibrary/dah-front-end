@@ -2,6 +2,7 @@ import {Form, Button} from 'react-bootstrap';
 import { useState } from 'react';
 import {useAuth} from '../Context/auth';
 import useFetch from '../hooks/useFetch';
+import {Dropdown, DropdownButton} from 'react-bootstrap';
 
 const profileAPI = 'https://digitalarthub.azurewebsites.net/api/Users/Profiles';
 const createArtAPI = 'https://digitalarthub.azurewebsites.net/api/Profile/30/Art';
@@ -22,7 +23,7 @@ export default function CreateArt(props){
     
     const { data } =  useFetch(profileAPI);
      if(data != null){
-        data.forEach(p => console.log(p.id))
+        data.forEach(p => console.log(p.id, p.displayName));
      }
     
 
@@ -34,12 +35,12 @@ export default function CreateArt(props){
     const handleSubmit = async e => {
         e.preventDefault();
         const artTitle = e.target.ArtTitle.value;
-        const artist = e.target.ArtistName.value;
+        const profile = e.target.ProfileName.value;
         const artContent = e.target.ArtContent.value;
         const artDescription = e.target.ArtDescription.value;
         const newArt = {
             artTitle,
-            artist,
+            profile,
             artContent,
             artDescription,
           };
@@ -69,9 +70,13 @@ export default function CreateArt(props){
           <Form.Label>Art Title</Form.Label>
           <Form.Control type="text" name="ArtTitle" placeholder={ArtTitle} />
         </Form.Group>
-        <Form.Group controlId="Artist">
-          <Form.Label>Artist Name</Form.Label>
-          <Form.Control  type="text" name="ArtistName" placeholder="Artist Name" />
+        <Form.Group controlId="Profile">
+          <Form.Label>Profile</Form.Label>
+          <DropdownButton controlId="dropdown-basic-button" title="Dropdown button" name="profile">
+          <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+        </DropdownButton>
         </Form.Group>
         <Form.Group controlId="Content">
           <Form.Label>Art Content</Form.Label>
