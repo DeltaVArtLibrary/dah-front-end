@@ -70,7 +70,7 @@ export function ArtCard(props){
   return(
     <Card className="SingleCard" key={art.artId} style={{ width: 400 }}>
       <Card.Body className="fixingTextContent">
-          <Card.Title>{art.title}</Card.Title>
+          <Card.Title className="artTitle">{art.title}</Card.Title>
           <Card.Text className="scrollable">{art.content}</Card.Text>
           {art.description&&<><Card.Title className="Description">Description</Card.Title>
           <Card.Text className="scrollableDescription">{art.description}</Card.Text></>}
