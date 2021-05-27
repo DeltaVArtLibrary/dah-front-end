@@ -1,5 +1,4 @@
 import NavBar from './Components/NavBar';
-import Home from './Home';
 import Art from './Art';
 import Collections from './Collections';
 import Profile from './Profile';
@@ -7,7 +6,7 @@ import Login from './Components/auth/Login';
 import Register from './Components/auth/Register';
 import CreateArt from './Components/CreateArt';
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 function App() {
   return (
@@ -18,7 +17,7 @@ function App() {
       <main>
         <Switch>
           <Route path="/" exact>
-            <Home />
+            <Redirect to="/Art" />
           </Route>
           <Route path="/Art">
             <Art />

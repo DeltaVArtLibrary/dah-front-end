@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import NavLogin from './NavLogin';
-import { Nav, Navbar } from 'react-bootstrap'
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
 
 
 export default function NavBar(){
@@ -8,39 +8,24 @@ export default function NavBar(){
 
   return (
       <>
-        <Navbar className="navbar navbar-expand-sm navbar-dark bg-dark">
-          <Nav className="mr-auto" variant="tabs">
-          
-          <Nav.Item>
-            <NavLink to="/">Home</NavLink>
-          </Nav.Item>
+        <Navbar variant="dark" bg="dark">
+          <Nav className="mr-auto">
+            <NavLink className="nav-link" to="/Art">Home</NavLink>
 
-          <Nav.Item>
-            <NavLink to="/Art">Art</NavLink>
-          </Nav.Item>
+            <NavLink className="nav-link" to="/CreateArt">Create Art</NavLink>
 
-          <Nav.Item>
-            <NavLink to="/CreateArt">Create Art</NavLink>
-          </Nav.Item>
+            <NavLink className="nav-link" to="/Collections">Collections</NavLink>            
 
-          <Nav.Item>
-            <NavLink to="/Collections">Collections</NavLink>
-          </Nav.Item>
-
-          <Nav.Item>
-            <NavLink to="/Profile">Profile</NavLink>
-          </Nav.Item>
-
-          <Nav.Item>
-            
-          </Nav.Item>
-            
+            <NavDropdown title="Profile" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/Profile/1">Profile</NavDropdown.Item>
+              <NavDropdown.Item href="/Profile/2">Profile 2</NavDropdown.Item>
+              <NavDropdown.Item href="/Profile/3">Profile 3</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item className="disabled">Create New Profile</NavDropdown.Item>
+            </NavDropdown>          
           </Nav>
+          <NavLogin/>
         </Navbar>
-       
-        <NavLogin/>
-      </>
-      
+      </>      
     )
   }
-

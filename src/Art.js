@@ -3,6 +3,10 @@ import useFetch from './hooks/useFetch';
 import './css/Art.css';
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import { Jumbotron, Container} from 'react-bootstrap'
+
+
+
 
 
 
@@ -14,7 +18,16 @@ export default  function Art() {
 
   return (
     <>
-      <h1>Welcome to the art page.</h1>
+      <Jumbotron fluid>
+        <Container>
+          <h1>DIGITAL ART HUB</h1>
+            <p>
+              Welcome to your online artist community.
+              A place for you to explore your varied artistic expressions. 
+              A place to collaborate with others of mutual interests.
+            </p>
+        </Container>
+      </Jumbotron>
       <div>
        <ArtList art={data} />
       </div>
