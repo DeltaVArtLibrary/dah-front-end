@@ -25,6 +25,9 @@ body {
   justify-content: space-evenly;
 }
 
+.artTitle{
+  font-size: 15px;
+}
 .scrollable {
   overflow-y: auto;
   max-height: 150px;
