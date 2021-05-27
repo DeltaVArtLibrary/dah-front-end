@@ -1,10 +1,11 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import NavLogin from './NavLogin';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
-
+import { useProfiles } from '../Context/profiles';
 
 export default function NavBar(){
 
+  const { data : profiles } = useProfiles();
 
   return (
       <>
@@ -16,13 +17,13 @@ export default function NavBar(){
 
             <NavLink className="nav-link" to="/Collections">Collections</NavLink>            
 
-            <NavDropdown title="Profile" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/Profile/1">Profile</NavDropdown.Item>
-              <NavDropdown.Item href="/Profile/2">Profile 2</NavDropdown.Item>
-              <NavDropdown.Item href="/Profile/3">Profile 3</NavDropdown.Item>
+            {profiles && <NavDropdown title="Profile" id="basic-nav-dropdown">
+              {profiles.map(profile => (
+                <Link className="dropdown-item" key={profile.id} to={`/Profile/${profile.id}`}>{profile.displayName}</Link>
+              ))}
               <NavDropdown.Divider />
               <NavDropdown.Item className="disabled">Create New Profile</NavDropdown.Item>
-            </NavDropdown>          
+            </NavDropdown>}         
           </Nav>
           <NavLogin/>
         </Navbar>

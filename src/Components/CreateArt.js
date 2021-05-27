@@ -1,10 +1,9 @@
 import {Form, Button} from 'react-bootstrap'; 
 import {useAuth} from '../Context/auth';
-import useFetch from '../hooks/useFetch';
 import { useHistory } from 'react-router-dom';
+import { useProfiles } from '../Context/profiles';
 
 
-const profileAPI = 'https://digitalarthub.azurewebsites.net/api/Users/Profiles';
 const API = 'https://digitalarthub.azurewebsites.net/api';
 
 
@@ -13,7 +12,7 @@ export default function CreateArt(props){
     const history = useHistory();
     // use useAuth to verify the user
     const auth = useAuth();
-    const { data } =  useFetch(profileAPI);
+    const { data } =  useProfiles();
 
     // If the user is not signed in, tell them to sign in
     const { user } = auth;

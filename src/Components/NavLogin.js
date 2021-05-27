@@ -20,7 +20,7 @@ export default function NavLogin(){
       }
 
       return (
-          <button className="logout" onClick={handleLogout}>Log Out</button>
+          <Button variant="secondary" className="logout" onClick={handleLogout}>Log Out</Button>
       )
   }
 
