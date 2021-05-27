@@ -78,12 +78,10 @@ export default function CreateArt(props){
         </Form.Group>
         <Form.Group controlId="ProfileId">
             <Form.Label>Profile</Form.Label>
-            <Form.Control as="select" custom>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+            <Form.Control as="select" custom disabled={!data}>
+              {!data ? <option>Loading...</option>: data.map(profile => (
+                <option key={profile.id} value={profile.id}>{profile.displayName}</option>
+              ))}
             </Form.Control>
           </Form.Group>
         <Form.Group controlId="Content">
