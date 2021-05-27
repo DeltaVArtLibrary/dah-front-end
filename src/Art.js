@@ -8,15 +8,15 @@ import Card from 'react-bootstrap/Card';
 
 export default  function Art() {
   const { data } =  useFetch('https://digitalarthub.azurewebsites.net/api/Art');
-
-  // console.log(data);
+  
+    // console.log(data);
 
 
   return (
     <>
       <h1>Welcome to the art page.</h1>
       <div>
-       <ArtList art={data}/>
+       <ArtList art={data} />
       </div>
     </>
   );
@@ -36,8 +36,8 @@ function ArtList(props){
   return(
     <div className="CardLineup">
       {artArray.map((art) => 
-      <ArtCard art={art}/>
-        )}
+        <ArtCard art={art}/>
+      )}
     </div>
   )
 }
@@ -47,7 +47,6 @@ export function ArtCard(props){
   // console.log(art);
   return(
     <Card className="SingleCard" key={art.artId} style={{ width: 400 }}>
-
       <Card.Body className="fixingTextContent">
           <Card.Title>{art.title}</Card.Title>
           <Card.Text className="scrollable">{art.content}</Card.Text>

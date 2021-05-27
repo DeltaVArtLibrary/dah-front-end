@@ -1,63 +1,60 @@
 import {Form, Button} from 'react-bootstrap'; 
-import { useState } from 'react';
 import {useAuth} from '../Context/auth';
 import useFetch from '../hooks/useFetch';
+import { useHistory } from 'react-router-dom';
+
 
 const profileAPI = 'https://digitalarthub.azurewebsites.net/api/Users/Profiles';
-const createArtAPI = 'https://digitalarthub.azurewebsites.net/api/Profile/30/Art';
+const API = 'https://digitalarthub.azurewebsites.net/api';
 
-export function ProfileData(prop){
-    const auth = useAuth();
-    console.log(auth);
-    const { user } = auth;
-    console.log(user);
-};
 
 export default function CreateArt(props){
+    // allows us to redirect to the art page upon form submission
+    const history = useHistory();
+    // use useAuth to verify the user
     const auth = useAuth();
-    console.log(auth);
-    const { user } = auth;
-    console.log(user);
-    const [ArtTitle] = useState("Title");
-    
     const { data } =  useFetch(profileAPI);
-     if(data != null){
-        data.forEach(p => console.log(p.id))
-     }
-    
 
+    // If the user is not signed in, tell them to sign in
+    const { user } = auth;
     if (!user) {
         return (
             <p>You are not signed in, please sign in to create art.</p>
         );
     }
+    // on form submission go through and create an art object with the values the user entered
     const handleSubmit = async e => {
         e.preventDefault();
         const artTitle = e.target.ArtTitle.value;
-        const artist = e.target.ArtistName.value;
+        const profileId = parseInt(e.target.ProfileId.value);
         const artContent = e.target.ArtContent.value;
         const artDescription = e.target.ArtDescription.value;
         const newArt = {
             artTitle,
-            artist,
+            profileId,
             artContent,
             artDescription,
           };
-          
-          fetch(createArtAPI, {
+          // send art object to the api using the correct profile id
+          await fetch(`${API}/Profile/${profileId}/Art`, {
               method: 'POST',
               headers: {
                   'Authorization': `Bearer ${user.token}`,
                   'Content-Type': 'application/json',
             },
             body:JSON.stringify({
-                profileId: 30,
+                profileId: newArt.profileId,
                 title: newArt.artTitle,
                 content: newArt.artContent,
                 description: newArt.artDescription,
             })
           })
           console.log(newArt);
+          // reset the form
+          e.target.reset();
+
+          // redirct to art
+          history.push('/Art');
     };
 
 
@@ -67,12 +64,16 @@ export default function CreateArt(props){
       <Form onSubmit={handleSubmit} > 
         <Form.Group controlId="ArtTitle">
           <Form.Label>Art Title</Form.Label>
-          <Form.Control type="text" name="ArtTitle" placeholder={ArtTitle} />
+          <Form.Control type="text" name="ArtTitle" placeholder="Title" />
         </Form.Group>
-        <Form.Group controlId="Artist">
-          <Form.Label>Artist Name</Form.Label>
-          <Form.Control  type="text" name="ArtistName" placeholder="Artist Name" />
-        </Form.Group>
+        <Form.Group controlId="ProfileId">
+            <Form.Label>Profile</Form.Label>
+            <Form.Control as="select" custom disabled={!data}>
+              {!data ? <option>Loading...</option>: data.map(profile => (
+                <option key={profile.id} value={profile.id}>{profile.displayName}</option>
+              ))}
+            </Form.Control>
+          </Form.Group>
         <Form.Group controlId="Content">
           <Form.Label>Art Content</Form.Label>
           <Form.Control type="text" name="ArtContent" placeholder="Put your Content Here" />
