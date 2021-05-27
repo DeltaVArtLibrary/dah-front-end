@@ -13,7 +13,7 @@ export default function CreateArt(props){
     const history = useHistory();
     // use useAuth to verify the user
     const auth = useAuth();
-    const { data } =  useFetch(profileAPI);
+    const { data } =  useFetch(profileAPI, true);
 
     // If the user is not signed in, tell them to sign in
     const { user } = auth;

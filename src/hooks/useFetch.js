@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useAuth } from '../Context/auth';
 
 
-export default function useFetch(url) {
+export default function useFetch(url, requireAuth=false) {
     const {user} = useAuth();
     
 
@@ -14,13 +14,16 @@ export default function useFetch(url) {
             let headers = {};
             if(user){
                 headers['Authorization'] = `Bearer ${user.token}`
+            } 
+            else if (requireAuth){
+                return;
             }
             let response = await fetch(url, {headers});
             let body = await response.json();
             setData(body);
         }
         doFetch();
-    }, [url, user]);
+    }, [url, user, requireAuth]);
     
     return {
         data,
