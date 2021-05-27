@@ -1,6 +1,5 @@
 import useFetch from './hooks/useFetch';
 import CollectionCard from './Components/collections/CollectionCard';
-import { CardColumns, CardDeck } from 'react-bootstrap';
 
 export default function Collections() {
   // const [data, setData] = useState(null);
