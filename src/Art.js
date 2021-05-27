@@ -36,16 +36,28 @@ function ArtList(props){
   return(
     <div className="CardLineup">
       {artArray.map((art) => 
-    <Card className="SingleCard" style={{ width: 400 }}>
+      <ArtCard art={art}/>
+    // <Card className="SingleCard" style={{ width: 400 }}>
 
-      <Card.Body className="fixingTextContent">
-          <Card.Title>{art.title}</Card.Title>
-          <Card.Text className="scrollable">{art.content}</Card.Text>
-          <Card.Text className="profileName">{art.profileDisplayName}</Card.Text>
-      </Card.Body>
-    </Card>
+    //   <Card.Body className="fixingTextContent">
+    //       <Card.Title>{art.title}</Card.Title>
+    //       <Card.Text className="scrollable">{art.content}</Card.Text>
+    //       <Card.Text className="profileName">{art.profileDisplayName}</Card.Text>
+    //   </Card.Body>
+    // </Card>
         )}
     </div>
   )
 }
 
+export function ArtCard(data){
+   console.log(data);
+  return(
+  <Card className="SingleCard" style={{ width: 400 }}>
+  <Card.Body className="fixingTextContent">
+      <Card.Title>{data.art.title}</Card.Title>
+      <Card.Text className="scrollable">{data.art.content}</Card.Text>
+      <Card.Text className="profileName">{data.art.profileDisplayName}</Card.Text>
+  </Card.Body>
+</Card>)
+}
