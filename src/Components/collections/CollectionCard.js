@@ -1,22 +1,22 @@
 import { Card, Button, Accordion, CardColumns} from 'react-bootstrap';
 import { ArtCard } from "../../Art";
 
-export default function CollectionCard(data) {
-  
+export default function CollectionCard(props) {
+  const {collection} = props;
   return(
-    <Card className='Collection-Card' key={data.collectionId}>
+    <Card className='Collection-Card' key={collection.collectionId}>
       <Card.Body>
-        <Card.Title>{data.title}</Card.Title>
-        {/* <Card.Subtitle>{data.profileDisplayName}</Card.Subtitle> */}
+        <Card.Title>{collection.title}</Card.Title>
+        {/* <Card.Subtitle>{collection.profileDisplayName}</Card.Subtitle> */}
         <Card.Text>
-          {data.description}
+          {collection.description}
         </Card.Text>
         <Accordion>
-          <Accordion.Toggle as={Button} variant={data.art.length?"primary":"secondary"} eventKey={data.collectionId} disabled={data.art.length===0}>View: {data.art.length}</Accordion.Toggle>
-          <Accordion.Collapse eventKey={data.collectionId}>
+          <Accordion.Toggle as={Button} variant={collection.art.length?"primary":"secondary"} eventKey={collection.collectionId} disabled={collection.art.length===0}>View: {collection.art.length}</Accordion.Toggle>
+          <Accordion.Collapse eventKey={collection.collectionId}>
             <CardColumns className="CardLineup">
-            {data.art.map((art) => 
-              <ArtCard art={art} />
+            {collection.art.map((art) => 
+              <ArtCard art={art} key={art.artId} />
             )}
             </CardColumns>
           </Accordion.Collapse>
