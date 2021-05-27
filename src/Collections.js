@@ -39,7 +39,7 @@ function CollectionList(props){
     </div>);
   }
   return(
-    <CardDeck className="Collections">
+    <CardDeck key={collectionsArray.collectionId} className="Collections">
       {collectionsArray.map((collection) => 
       CollectionCard(collection)
         )}
