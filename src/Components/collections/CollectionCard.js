@@ -1,5 +1,5 @@
-import { Card, Button, Accordion, CardColumns} from 'react-bootstrap';
-import { ArtCard } from "../../Art";
+import { Card, Button, Accordion, CardColumns } from 'react-bootstrap';
+import { ArtCard } from '../../Art';
 
 export default function CollectionCard(props) {
   const {collection} = props;
