@@ -24,6 +24,7 @@ export default function CollectionCard(data) {
             
         
       </Card.Body>
+      <Card.Footer>Literally whatever I want</Card.Footer>
     </Card>
   )
 }
