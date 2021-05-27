@@ -1,7 +1,7 @@
 import useFetch from './hooks/useFetch';
 // import Card from 'react-bootstrap/Card';
 import './css/Art.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import { Jumbotron, Container} from 'react-bootstrap'
 
@@ -36,7 +36,16 @@ export default  function Art() {
 }
 
 function ArtList(props){
-  var artArray=props.art; // array to store the art 
+  const artArray=props.art; // array to store the art 
+  useEffect(() => {
+    if(artArray)
+    {
+    artArray.reverse();
+    console.log("reversing");
+    }
+  },
+  [artArray]);
+ 
   if(!artArray){
 
     // Need to give a return while the art loads
@@ -49,7 +58,7 @@ function ArtList(props){
   return(
     <div className="CardLineup">
       {artArray.map((art) => 
-        <ArtCard art={art}/>
+        <ArtCard art={art} key={art.artId}/>
       )}
     </div>
   )
