@@ -20,11 +20,17 @@ export default function CreateArt(props){
     const { user } = auth;
     console.log(user);
     const [ArtTitle] = useState("Title");
+
+    
     
     const { data } =  useFetch(profileAPI);
      if(data != null){
-        data.forEach(p => console.log(p.id, p.displayName));
+        data.forEach(p =>
+          
+          console.log(p.id, p.displayName));
      }
+
+     
     
 
     if (!user) {
@@ -35,12 +41,12 @@ export default function CreateArt(props){
     const handleSubmit = async e => {
         e.preventDefault();
         const artTitle = e.target.ArtTitle.value;
-        const profile = e.target.ProfileName.value;
+        const profileId = parseInt(e.target.ProfileId.value);
         const artContent = e.target.ArtContent.value;
         const artDescription = e.target.ArtDescription.value;
         const newArt = {
             artTitle,
-            profile,
+            profileId,
             artContent,
             artDescription,
           };
@@ -70,14 +76,16 @@ export default function CreateArt(props){
           <Form.Label>Art Title</Form.Label>
           <Form.Control type="text" name="ArtTitle" placeholder={ArtTitle} />
         </Form.Group>
-        <Form.Group controlId="Profile">
-          <Form.Label>Profile</Form.Label>
-          <DropdownButton controlId="dropdown-basic-button" title="Dropdown button" name="profile">
-          <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-        </DropdownButton>
-        </Form.Group>
+        <Form.Group controlId="ProfileId">
+            <Form.Label>Profile</Form.Label>
+            <Form.Control as="select" custom>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </Form.Control>
+          </Form.Group>
         <Form.Group controlId="Content">
           <Form.Label>Art Content</Form.Label>
           <Form.Control type="text" name="ArtContent" placeholder="Put your Content Here" />
