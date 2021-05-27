@@ -1,4 +1,5 @@
 import useFetch from './hooks/useFetch';
+import './css/Profile.css';
 import { useParams } from 'react-router-dom';
 import { Tabs, Tab } from 'react-bootstrap';
 import { useState } from 'react';
@@ -33,11 +34,11 @@ function ProfileNav() {
   
   const [key, setKey] = useState('art');
   return (
-    <Tabs activeKey={key} onSelect={k => setKey(k)} >
-      <Tab eventKey="art" title="Art">
+    <Tabs className="ProfileTabs" activeKey={key} onSelect={k => setKey(k)} >
+      <Tab className="ProfileTab" eventKey="art" title="Art">
         <ProfileArtList />
       </Tab>
-      <Tab eventKey="collections" title="Collections">
+      <Tab className="ProfileTab" eventKey="collections" title="Collections">
         <ProfileCollections />
       </Tab>
     </Tabs>
