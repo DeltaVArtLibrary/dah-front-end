@@ -19,7 +19,9 @@ export default function CreateArt(props){
     const { user } = auth;
     if (!user) {
         return (
-            <NavLogin state={"Login"}/>
+          <div hidden>
+            <NavLogin state={"Login"} />
+            </div>
         );
     }
     // on form submission go through and create an art object with the values the user entered
