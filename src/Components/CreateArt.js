@@ -64,7 +64,7 @@ export default function CreateArt(props){
       <Form onSubmit={handleSubmit} > 
         <Form.Group controlId="ArtTitle">
           <Form.Label>Art Title</Form.Label>
-          <Form.Control type="text" name="ArtTitle" placeholder="Title" />
+          <Form.Control type="text" name="ArtTitle" placeholder="Title" required/>
         </Form.Group>
         <Form.Group controlId="ProfileId">
             <Form.Label>Profile</Form.Label>
@@ -76,7 +76,7 @@ export default function CreateArt(props){
           </Form.Group>
         <Form.Group controlId="Content">
           <Form.Label>Art Content</Form.Label>
-          <Form.Control type="text" name="ArtContent" placeholder="Put your Content Here" />
+          <Form.Control type="text" name="ArtContent" placeholder="Put your Content Here" required />
         </Form.Group>
         <Form.Group controlId="Description">
           <Form.Label>Description</Form.Label>
