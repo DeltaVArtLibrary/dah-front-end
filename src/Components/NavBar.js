@@ -19,7 +19,7 @@ export default function NavBar(){
 
             {profiles && <NavDropdown title="Profile" id="basic-nav-dropdown">
               {profiles.map(profile => (
-                <NavDropdown.Item key={profile.id} href={`/Profile/${profile.id}`}>{profile.displayName}</NavDropdown.Item>
+                <NavLink className="dropdown-item" key={profile.id} to={`/Profile/${profile.id}`}>{profile.displayName}</NavLink>
               ))}
               <NavDropdown.Divider />
               <NavDropdown.Item className="disabled">Create New Profile</NavDropdown.Item>
