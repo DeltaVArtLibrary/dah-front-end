@@ -20,7 +20,7 @@ export function AuthProvider(props) {
   });
 
   async function register(email, username, password) {
-    console.log({email, username, password});
+    // console.log({email, username, password});
 
     const result = await fetch(`${usersAPI}/Register`, {
       method: 'post',
@@ -44,7 +44,7 @@ export function AuthProvider(props) {
   }
 
   async function login(username, password) {
-    console.log({username, password});
+    // console.log({username, password});
 
     const result = await fetch(`${usersAPI}/Login`, {
       method: 'post',
@@ -92,7 +92,7 @@ function processToken(user) {
   try {
     const payload = jwt.decode(user.token);
     if (payload){
-      console.log('token payload', payload);
+      //console.log('token payload', payload);
       user.permissions = payload.permissions || [];
       
       return user;

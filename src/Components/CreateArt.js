@@ -51,7 +51,7 @@ export default function CreateArt(props){
                 description: newArt.artDescription,
             })
           })
-          console.log(newArt);
+          //console.log(newArt);
           // reset the form
           e.target.reset();
 
