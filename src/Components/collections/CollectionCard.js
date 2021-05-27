@@ -1,10 +1,10 @@
-import { Card, Button, Accordion } from 'react-bootstrap';
+import { Card, Button, Accordion, CardColumns} from 'react-bootstrap';
+import { ArtCard } from "../../Art";
 
 export default function CollectionCard(data) {
   
-  
   return(
-    <Card className='Collection-Card'>
+    <Card className='Collection-Card' key={data.collectionId}>
       <Card.Body>
         <Card.Title>{data.title}</Card.Title>
         {/* <Card.Subtitle>{data.profileDisplayName}</Card.Subtitle> */}
@@ -14,11 +14,11 @@ export default function CollectionCard(data) {
         <Accordion>
           <Accordion.Toggle as={Button} variant={data.art.length?"primary":"secondary"} eventKey={data.collectionId} disabled={data.art.length===0}>View: {data.art.length}</Accordion.Toggle>
           <Accordion.Collapse eventKey={data.collectionId}>
-            <div>
+            <CardColumns className="CardLineup">
             {data.art.map((art) => 
-              <div>{art.title}</div>
+              <ArtCard art={art} />
             )}
-            </div>
+            </CardColumns>
           </Accordion.Collapse>
         </Accordion>
             
