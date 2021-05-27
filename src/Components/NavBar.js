@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import NavLogin from './NavLogin';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import { useProfiles } from '../Context/profiles';
@@ -19,7 +19,7 @@ export default function NavBar(){
 
             {profiles && <NavDropdown title="Profile" id="basic-nav-dropdown">
               {profiles.map(profile => (
-                <NavLink className="dropdown-item" key={profile.id} to={`/Profile/${profile.id}`}>{profile.displayName}</NavLink>
+                <Link className="dropdown-item" key={profile.id} to={`/Profile/${profile.id}`}>{profile.displayName}</Link>
               ))}
               <NavDropdown.Divider />
               <NavDropdown.Item className="disabled">Create New Profile</NavDropdown.Item>
