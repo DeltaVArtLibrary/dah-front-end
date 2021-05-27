@@ -1,6 +1,5 @@
 import useFetch from './hooks/useFetch';
 import CollectionCard from './Components/collections/CollectionCard';
-import { CardDeck } from 'react-bootstrap';
 
 export default function Collections() {
   // const [data, setData] = useState(null);
@@ -39,10 +38,10 @@ function CollectionList(props){
     </div>);
   }
   return(
-    <CardDeck key={collectionsArray.collectionId} className="Collections">
+    <div key={collectionsArray.collectionId} className="Collections">
       {collectionsArray.map((collection) => 
-      CollectionCard(collection)
+      <CollectionCard collection ={collection} key={collection.collectionId}/>
         )}
-    </CardDeck>
+    </div>
   )
 }
