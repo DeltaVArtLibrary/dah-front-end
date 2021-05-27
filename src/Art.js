@@ -41,6 +41,8 @@ function ArtList(props){
       <Card.Body className="fixingTextContent">
           <Card.Title>{art.title}</Card.Title>
           <Card.Text className="scrollable">{art.content}</Card.Text>
+          <Card.Title className="Description">Description</Card.Title>
+          <Card.Text className="scrollableDescription">{art.description}</Card.Text>
           <Card.Text className="profileName">{art.profileDisplayName}</Card.Text>
       </Card.Body>
     </Card>
