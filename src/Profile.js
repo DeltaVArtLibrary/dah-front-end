@@ -2,7 +2,7 @@ import useFetch from './hooks/useFetch';
 import { useParams } from 'react-router-dom';
 import { Tabs, Tab } from 'react-bootstrap';
 import { useState } from 'react';
-import ArtList from './Art';
+import { ArtList } from './Art';
 import { CollectionList } from './Collections';
 
 //const profileAPI = 'https://digitalarthub.azurewebsites.net/api/Users/Profiles';
