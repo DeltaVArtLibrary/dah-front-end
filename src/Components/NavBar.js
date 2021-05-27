@@ -8,7 +8,6 @@ export default function NavBar(){
 
   return (
       <>
-
         <Navbar variant="dark" bg="dark">
           <Nav className="mr-auto">
             <NavLink className="nav-link" to="/Art">Home</NavLink>
@@ -23,13 +22,10 @@ export default function NavBar(){
               <NavDropdown.Item href="/Profile/3">Profile 3</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item className="disabled">Create New Profile</NavDropdown.Item>
-            </NavDropdown>
-
-            
+            </NavDropdown>          
           </Nav>
           <NavLogin/>
         </Navbar>
-      </>
-      
+      </>      
     )
   }

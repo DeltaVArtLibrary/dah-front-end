@@ -28,7 +28,13 @@ body {
   overflow-y: auto;
   max-height: 200px;
 }
-
+.scrollableDescription {
+  overflow-y: auto;
+  max-height: 75px;
+}
+.Description{
+  font-size: 15px;
+}
 .profileName {
   position: absolute;
   bottom: 5px;

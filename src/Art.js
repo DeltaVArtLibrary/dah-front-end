@@ -12,8 +12,8 @@ import { Jumbotron, Container} from 'react-bootstrap'
 
 export default  function Art() {
   const { data } =  useFetch('https://digitalarthub.azurewebsites.net/api/Art');
-
-  // console.log(data);
+  
+    // console.log(data);
 
 
   return (
@@ -29,8 +29,7 @@ export default  function Art() {
         </Container>
       </Jumbotron>
       <div>
-       
-       <ArtList art={data}/>
+       <ArtList art={data} />
       </div>
     </>
   );
@@ -50,11 +49,13 @@ function ArtList(props){
   return(
     <div className="CardLineup">
       {artArray.map((art) => 
-    <Card className="SingleCard" style={{ width: 400 }}>
+      <Card className="SingleCard" key={art.artId} style={{ width: 400 }}>
 
       <Card.Body className="fixingTextContent">
           <Card.Title>{art.title}</Card.Title>
           <Card.Text className="scrollable">{art.content}</Card.Text>
+          <Card.Title className="Description">Description</Card.Title>
+          <Card.Text className="scrollableDescription">{art.description}</Card.Text>
           <Card.Text className="profileName">{art.profileDisplayName}</Card.Text>
       </Card.Body>
     </Card>
