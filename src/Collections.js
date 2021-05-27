@@ -30,7 +30,7 @@ export default function Collections() {
 
 }
 
-function CollectionList(props){
+export function CollectionList(props){
   var collectionsArray=props.collections;
   console.log(props);
   if(!collectionsArray){
