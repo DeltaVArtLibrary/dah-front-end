@@ -34,8 +34,8 @@ function App() {
           <Route path="/Register">
             <Register />
           </Route>
-          <Route path="Login">
-            <Login />
+          <Route>
+            <h1>404: Page not found.</h1>
           </Route>
 
         </Switch>
