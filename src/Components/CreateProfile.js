@@ -25,8 +25,8 @@ export default function CreateProfile(props){
     const handleSubmit = async e => {
       console.log(e.target)
       e.preventDefault();
-      const profileDisplayName = e.target.profileDisplayName.value;
-      const profileDescription = e.target.profileDescription.value;
+      const profileDisplayName = e.target.ProfileDisplayName.value;
+      const profileDescription = e.target.ProfileDescription.value;
       const newProfile = {
           profileDisplayName,
           profileDescription,
