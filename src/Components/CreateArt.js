@@ -61,7 +61,7 @@ export default function CreateArt(props){
 
 
    return (
-    <div className="create-art-form">
+    <div className="create-form">
       <h2>Create Art</h2>
       <Form onSubmit={handleSubmit} > 
         <Form.Group controlId="ArtTitle">

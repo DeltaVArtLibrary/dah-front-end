@@ -35,6 +35,11 @@
   justify-content: space-between;
 }
 
+.create-form{
+  width: 50%;
+  margin: auto;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

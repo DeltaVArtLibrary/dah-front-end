@@ -5,6 +5,7 @@ import Profile from './Profile';
 import Login from './Components/auth/Login';
 import Register from './Components/auth/Register';
 import CreateArt from './Components/CreateArt';
+import CreateProfile from './Components/CreateProfile';
 import './App.css';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path="/Collections">
             <Collections />
+          </Route>
+          <Route path="/Profile/Create">
+            <CreateProfile />
           </Route>
           <Route path="/Profile/:id">
             <Profile />
