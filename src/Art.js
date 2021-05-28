@@ -31,6 +31,7 @@ export default  function Art() {
       <div>
        <ArtList art={data} />
       </div>
+      
     </>
   );
 }

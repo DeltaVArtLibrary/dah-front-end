@@ -41,8 +41,8 @@ function App() {
           <Route path="Login">
             <Login />
           </Route>
-
-        </Switch>
+           </Switch>
+           <footer className="footer">BANJ Group a Subsidiary of HMTH Global</footer>
       </main>
     </div>
   );
