@@ -22,7 +22,7 @@ export default function NavBar(){
                 <Link className="dropdown-item" key={profile.id} to={`/Profile/${profile.id}`}>{profile.displayName}</Link>
               ))}
               <NavDropdown.Divider />
-              <NavDropdown.Item className="disabled">Create New Profile</NavDropdown.Item>
+              <Link className="dropdown-item" to="/Profile/Create">Create Profile</Link>
             </NavDropdown>}         
           </Nav>
           <NavLogin/>
