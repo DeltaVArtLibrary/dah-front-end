@@ -2,7 +2,6 @@ import NavBar from './Components/NavBar';
 import Art from './Art';
 import Collections from './Collections';
 import Profile from './Profile';
-import Login from './Components/auth/Login';
 import Register from './Components/auth/Register';
 import CreateArt from './Components/CreateArt';
 import './App.css';
