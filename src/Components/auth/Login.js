@@ -40,7 +40,7 @@ export default function Login() {
            </Form.Group>
            <Form.Group controlId="password">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="text" name="password" placeholder="Password" required />
+              <Form.Control type="password" name="password" placeholder="Password" required />
            </Form.Group>
            <Button type="submit" variant="danger" >Login</Button>          
     
