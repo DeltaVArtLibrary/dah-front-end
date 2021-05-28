@@ -1,7 +1,7 @@
 import { useAuth } from '../../Context/auth';
 import { Redirect } from 'react-router';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
+import { Form, Button } from 'react-bootstrap';
 
 export default function Login() {
   const { user, login, logout } = useAuth();
@@ -34,9 +34,16 @@ export default function Login() {
 
   return (
       <form className="loginForm" onSubmit={handleSubmit}>
-        <label>Username <input type="text" name="username" /></label>
-        <label>Password <input type="password" name="password" /></label>
-        <Button type="submit" variant="danger">Login</Button>
+          <Form.Group controlId="username">
+              <Form.Label>Username </Form.Label>
+              <Form.Control type="text" name="Username" placeholder="User Name" required />
+           </Form.Group>
+           <Form.Group controlId="password">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="text" name="password" placeholder="Password" required />
+           </Form.Group>
+           <Button type="submit" variant="danger" >Login</Button>          
+    
       </form>
     );
-}
+}   

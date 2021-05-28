@@ -21,11 +21,12 @@ export default  function Art() {
       <Jumbotron fluid>
         <Container>
           <h1>DIGITAL ART HUB</h1>
-            <p>
-              Welcome to your online artist community.
-              A place for you to explore your varied artistic expressions. 
-              A place to collaborate with others of mutual interests.
-            </p>
+            <p> </p>
+            <p> </p>
+              <p>Welcome to your online artist community.</p>
+              <p>A place for you to explore your varied artistic expressions.</p> 
+              <p>A place to collaborate with others of mutual interests.</p>
+            
         </Container>
       </Jumbotron>
       <div>

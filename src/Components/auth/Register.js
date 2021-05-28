@@ -1,7 +1,7 @@
 import { useAuth } from '../../Context/auth';
 import { Redirect } from 'react-router';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
+import { Button, Form} from 'react-bootstrap';
 
 export default function Register() {
   const {register} = useAuth();
@@ -28,11 +28,20 @@ export default function Register() {
       <h4>Register below.</h4><br>
       </br>
   
-    <form onSubmit={handleSubmit} className="register-form">
-      <label>Email <input type="text" name="email" /></label>
-      <label>Username <input type="text" name="username" /></label>
-      <label>Password <input type="password" name="password" /></label>
-      <Button type="submit" variant="danger">Register</Button>
+        <form className="register-form" onSubmit={handleSubmit}>
+        <Form.Group controlId="email">
+          <Form.Label>Email </Form.Label>
+          <Form.Control type="email" name="email" placeholder="Email" required />
+        </Form.Group>
+        <Form.Group controlId="username">
+          <Form.Label>Username </Form.Label>
+          <Form.Control type="text" name="Username" placeholder="User Name" required />
+        </Form.Group>
+        <Form.Group controlId="password">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="text" name="password" placeholder="Password" required />
+        </Form.Group>
+        <Button type="submit" variant="danger" >Register</Button>
     </form>
 
     </>
