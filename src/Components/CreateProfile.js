@@ -51,15 +51,15 @@ export default function CreateProfile(props){
         history.push(`/Profile/${profileResult.profileId}`);
       };
       return (
-          <div className="create-profile-form">
+          <div className="create-form">
             <h2>Create Profile</h2>
               <Form onSubmit={handleSubmit}> 
                 <Form.Group controlId="ProfileDisplayName">
-                  <Form.Label>ProfileName</Form.Label>
+                  <Form.Label>Profile Display Name</Form.Label>
                   <Form.Control type="text" name="ProfileDisplayName" placeholder="Display Name" required />
                 </Form.Group>
                 <Form.Group controlId="ProfileDescription">
-                  <Form.Label>Username</Form.Label>
+                  <Form.Label>Profile Description</Form.Label>
                   <Form.Control type="text" name="ProfileDescription" placeholder="Profile Description" required />
                 </Form.Group>
                 <Button type="submit">Create Profile</Button>
