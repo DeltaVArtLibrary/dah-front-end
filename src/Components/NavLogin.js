@@ -40,7 +40,7 @@ export default function NavLogin(props=null){
   return (
     <>
       <Button variant="primary" onClick={showLogin}>Login</Button>
-      <Modal show = {showForm} onHide = {hideModal}>
+      <Modal show = {!!showForm} onHide = {hideModal}>
         
         <Modal.Header> 
           <Modal.Title>

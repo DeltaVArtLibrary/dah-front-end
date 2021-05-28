@@ -11,7 +11,7 @@ export default function NavBar(){
       <>
         <Navbar variant="dark" bg="dark">
           <Nav className="mr-auto">
-            <NavLink className="nav-link" to="/Art">Home</NavLink>
+            <NavLink className="nav-link" to="/Art" style={{fontFamily: 'Lobster Two', fontSize:55}}>DAH</NavLink>
 
             <NavLink className="nav-link" to="/CreateArt">Create Art</NavLink>
 
