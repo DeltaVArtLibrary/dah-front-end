@@ -42,7 +42,8 @@ export default function Login() {
               <Form.Label>Password</Form.Label>
               <Form.Control type="text" name="password" placeholder="Password" required />
            </Form.Group>
-           <Button type="submit" variant="danger">Login</Button>
+           <Button type="submit" variant="danger" >Login</Button>          
+    
       </form>
     );
-}
+}   
