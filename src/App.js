@@ -2,7 +2,6 @@ import NavBar from './Components/NavBar';
 import Art from './Art';
 import Collections from './Collections';
 import Profile from './Profile';
-import Login from './Components/auth/Login';
 import Register from './Components/auth/Register';
 import CreateArt from './Components/CreateArt';
 import CreateProfile from './Components/CreateProfile';
@@ -38,8 +37,8 @@ function App() {
           <Route path="/Register">
             <Register />
           </Route>
-          <Route path="Login">
-            <Login />
+          <Route>
+            <h1>404: Page not found.</h1>
           </Route>
            </Switch>
            <footer className="footer">BANJ Group a Subsidiary of HMTH Global</footer>
