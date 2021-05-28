@@ -30,7 +30,7 @@ export function AuthProvider(props) {
   }, []);
 
   async function register(email, username, password) {
-    console.log({email, username, password});
+    // console.log({email, username, password});
 
     const result = await fetch(`${usersAPI}/Register`, {
       method: 'post',
@@ -54,7 +54,7 @@ export function AuthProvider(props) {
   }
 
   async function login(username, password) {
-    console.log({username, password});
+    // console.log({username, password});
 
     const result = await fetch(`${usersAPI}/Login`, {
       method: 'post',
@@ -107,6 +107,7 @@ function processToken(user) {
       // Token looks legit, so let's save it
       cookie.save(cookieName, user.token, { path: '/' });
       console.log('token payload', payload);
+
       user.permissions = payload.permissions || [];
       
       return user;

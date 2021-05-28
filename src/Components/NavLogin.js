@@ -8,11 +8,12 @@ import Button from 'react-bootstrap/Button';
 import CloseButton from 'react-bootstrap/CloseButton'
 
 
-export default function NavLogin(){
-  const [showForm, setShowForm] = useState();
+export default function NavLogin(props=null){
+  const propsTF = props.state;
+  const [showForm, setShowForm] = useState(propsTF);
 
   const { user, logout } = useAuth();
-
+  
   if (user) {
       function handleLogout() {
           logout();
@@ -39,7 +40,7 @@ export default function NavLogin(){
   return (
     <>
       <Button variant="primary" onClick={showLogin}>Login</Button>
-      <Modal show = {showForm} onHide = {hideModal}>
+      <Modal show = {!!showForm} onHide = {hideModal}>
         
         <Modal.Header> 
           <Modal.Title>

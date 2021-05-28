@@ -15,7 +15,7 @@ export default function Collections() {
 
   const { data } =  useFetch('https://digitalarthub.azurewebsites.net/api/Collections');
 
-  console.log(data);
+  // console.log(data);
 
 
   return (
@@ -31,7 +31,7 @@ export default function Collections() {
 
 export function CollectionList(props){
   var collectionsArray=props.collections;
-  console.log(props);
+  // console.log(props);
   if(!collectionsArray){
     return (<div>
       Loading...
