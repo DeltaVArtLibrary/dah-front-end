@@ -12,7 +12,7 @@ body {
 .SingleCard {
   background-color: #D9D9D9;
   border-radius: 15px;
-  height: 350px;
+  height: 420px;
   width: 15vw;
   margin: 25px;
   padding: .5rem;
@@ -32,7 +32,7 @@ body {
 }
 .scrollable {
   overflow-y: auto;
-  max-height: 150px;
+  max-height: 140px;
 }
 .scrollableDescription {
   overflow-y: auto;
