@@ -1,5 +1,9 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import jwt from 'jsonwebtoken';
+import cookie from 'react-cookies';
+
+const cookieName = 'auth';
+
 // api key 
 const usersAPI = 'https://digitalarthub.azurewebsites.net/api/Users'; //put api key here 
 
@@ -18,6 +22,12 @@ export function AuthProvider(props) {
     login,
     logout,
   });
+
+  useEffect(() => {
+    console.log(`Checking for ${cookieName} cookie`);
+    const cookieToken = cookie.load(cookieName);
+    setUser({token : cookieToken});
+  }, []);
 
   async function register(email, username, password) {
     console.log({email, username, password});
@@ -66,10 +76,12 @@ export function AuthProvider(props) {
 
   function logout() {
     setUser(null);
+    cookie.remove(cookieName, { path: '/' });
   }
 
   function setUser(user) {
     user = processToken(user);
+    console.log(user);
 
     setState(prevState => ({
       ...prevState,
@@ -92,6 +104,8 @@ function processToken(user) {
   try {
     const payload = jwt.decode(user.token);
     if (payload){
+      // Token looks legit, so let's save it
+      cookie.save(cookieName, user.token, { path: '/' });
       console.log('token payload', payload);
       user.permissions = payload.permissions || [];
       
