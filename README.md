@@ -1,5 +1,5 @@
 # Digital Arthub
-![Logo](/Assets/Logo2.PNG)
+![Logo](/Assets/Logo3.PNG)
 
 Created and finished by:
 - Nathan Hall 
