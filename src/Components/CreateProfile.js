@@ -25,8 +25,8 @@ export default function CreateProfile(props){
     const handleSubmit = async e => {
       console.log(e.target)
       e.preventDefault();
-      const profileDisplayName = e.target.profileDisplayName.value;
-      const profileDescription = e.target.profileDescription.value;
+      const profileDisplayName = e.target.ProfileDisplayName.value;
+      const profileDescription = e.target.ProfileDescription.value;
       const newProfile = {
           profileDisplayName,
           profileDescription,
@@ -45,10 +45,13 @@ export default function CreateProfile(props){
         })
         //console.log(newProfile);
         // reset the form
-        e.target.reset();
+      
+        let body = await profileResult.json();
 
+        e.target.reset();
+        console.log(body)
         // redirct to 
-        history.push(`/Profile/${profileResult.profileId}`);
+        history.push(`/Profile/${body.id}`);
       };
       return (
           <div className="create-form">
