@@ -30,11 +30,13 @@ export default function CreateArt(props){
         const artTitle = e.target.ArtTitle.value;
         const profileId = parseInt(e.target.ProfileId.value);
         const artContent = e.target.ArtContent.value;
+        const artFile = e.target.ArtFile.value;
         const artDescription = e.target.ArtDescription.value;
         const newArt = {
             artTitle,
             profileId,
             artContent,
+            artFile,
             artDescription,
           };
           // send art object to the api using the correct profile id
@@ -48,6 +50,7 @@ export default function CreateArt(props){
                 profileId: newArt.profileId,
                 title: newArt.artTitle,
                 content: newArt.artContent,
+                file: newArt.artFile,
                 description: newArt.artDescription,
             })
           })
@@ -79,6 +82,10 @@ export default function CreateArt(props){
         <Form.Group controlId="Content">
           <Form.Label>Art Content</Form.Label>
           <Form.Control type="text" name="ArtContent" placeholder="Put your Content Here" required />
+        </Form.Group>
+        <Form.Group controlId="File">
+          <Form.Label>Art File</Form.Label>
+          <Form.Control type="file" name="ArtFile" placeholder="File Upload" required />
         </Form.Group>
         <Form.Group controlId="Description">
           <Form.Label>Description</Form.Label>
