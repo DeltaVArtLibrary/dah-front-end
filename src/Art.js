@@ -74,6 +74,7 @@ export function ArtCard(props){
       <Card.Body className="fixingTextContent">
           <Card.Title className="artTitle">{art.title}</Card.Title>
           <Card.Text className="scrollable">{art.content}</Card.Text>
+          <Card.Text className="scrollable">{art.file}</Card.Text>
           {art.description&&<><Card.Title className="Description">Description</Card.Title>
           <Card.Text className="scrollableDescription">{art.description}</Card.Text></>}
           <Card.Text className="profileName">{art.profileDisplayName}</Card.Text>
