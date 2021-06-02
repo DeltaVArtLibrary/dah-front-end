@@ -84,7 +84,7 @@ export default function CreateArt(props){
           <Form.Control type="text" name="ArtContent" placeholder="Put your Content Here" required />
         </Form.Group>
         <Form.Group controlId="File">
-          <Form.Label>Art Content</Form.Label>
+          <Form.Label>Art File</Form.Label>
           <Form.Control type="file" name="ArtFile" placeholder="File Upload" required />
         </Form.Group>
         <Form.Group controlId="Description">
