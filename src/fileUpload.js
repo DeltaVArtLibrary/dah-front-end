@@ -16,9 +16,13 @@ export const FileUpload = () => {
     formData.append("formFile", file);
     formData.append("fileName", fileName);
     
-    const response = await fetch('https://localhost:5001/api/file')
-    const form-data = await response.json();
-      console.log(form-data);
+    fetch("https://localhost:5001/api/file",
+    {
+      body: formData,
+      method: "post"
+    })
+    //receiving formData, NOT json
+      console.log(formData);
   }
 
 
