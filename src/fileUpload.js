@@ -20,6 +20,8 @@ export const FileUpload = () => {
       console.log(response);
 
       /*
+      https://www.codegrepper.com/code-examples/javascript/Fetch+API+POST+form+data+React
+      
       fetch("api/SampleData",
     {
         body: formData,
