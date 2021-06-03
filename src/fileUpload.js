@@ -12,17 +12,20 @@ export const FileUpload = () => {
 
   const uploadFile = async (e) => {
     console.log(file);
-    const formData = new FormData();
+    let formData = new FormData();
     formData.append("formFile", file);
     formData.append("fileName", fileName);
     
-    fetch("https://localhost:5001/api/file",
+    const response = await fetch('https://localhost:5001/api/file')
+      console.log(response);
+
+      /*
+      fetch("api/SampleData",
     {
-      body: formData,
-      method: "post"
-    })
-    //receiving formData, NOT json
-      console.log(formData);
+        body: formData,
+        method: "post"
+    });
+    */
   }
 
 
