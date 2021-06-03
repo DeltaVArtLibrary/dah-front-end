@@ -3,7 +3,7 @@ import {useAuth} from '../Context/auth';
 import { useHistory } from 'react-router-dom';
 import { useProfiles } from '../Context/profiles';
 import NavLogin from './NavLogin';
-
+import { FileUpload } from '../fileUpload';
 
 const API = 'https://digitalarthub.azurewebsites.net/api';
 
@@ -65,6 +65,8 @@ export default function CreateArt(props){
 
    return (
     <div className="create-form">
+        <FileUpload />
+        
       <h2>Create Art</h2>
       <Form onSubmit={handleSubmit} > 
         <Form.Group controlId="ArtTitle">
@@ -93,7 +95,10 @@ export default function CreateArt(props){
         </Form.Group>
         <Button type="submit">Create Art</Button>
       </Form>
+
     </div>
+
+    
 
    );
 };
